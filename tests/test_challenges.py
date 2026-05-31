@@ -77,46 +77,44 @@ def test_first_repeated_id_repeat_can_be_first_item() -> None:
 # Required Problem 3: valid_tags
 # -----------------------------------------------------------------------------
 
-@pytest.mark.parametrize(
-    "tags",
-    [
-        "",
-        "{[()]}",
-        "((()))",
-        "[]{}()",
-        "case-{A17}[photo](verified)",
-    ],
-    ids=[
-        "empty",
-        "nested-brackets",
-        "nested-parens",
-        "all-pairs",
-        "case-with-text",
-    ],
-)
-def test_valid_tags_returns_true_for_balanced_tags(tags: str) -> None:
-    assert valid_tags(tags) is True
+def test_valid_tags_returns_true_for_empty_string() -> None:
+    assert valid_tags("") is True
 
 
-@pytest.mark.parametrize(
-    "tags",
-    [
-        "{[(])}",
-        "(()",
-        ")(",
-        "case-{A17[photo]",
-        "([)]",
-    ],
-    ids=[
-        "crossed",
-        "unfinished-open",
-        "closing-first",
-        "missing-bracket",
-        "wrong-order",
-    ],
-)
-def test_valid_tags_returns_false_for_unbalanced_tags(tags: str) -> None:
-    assert valid_tags(tags) is False
+def test_valid_tags_returns_true_for_nested_brackets() -> None:
+    assert valid_tags("{[()]}") is True
+
+
+def test_valid_tags_returns_true_for_nested_parens() -> None:
+    assert valid_tags("((()))") is True
+
+
+def test_valid_tags_returns_true_for_all_pairs() -> None:
+    assert valid_tags("[]{}()") is True
+
+
+def test_valid_tags_returns_true_for_text_with_tags() -> None:
+    assert valid_tags("case-{A17}[photo](verified)") is True
+
+
+def test_valid_tags_returns_false_for_crossed_brackets() -> None:
+    assert valid_tags("{[(])}") is False
+
+
+def test_valid_tags_returns_false_for_unfinished_open_tag() -> None:
+    assert valid_tags("(()") is False
+
+
+def test_valid_tags_returns_false_for_closing_first() -> None:
+    assert valid_tags(")(") is False
+
+
+def test_valid_tags_returns_false_for_missing_closing_bracket() -> None:
+    assert valid_tags("case-{A17[photo]") is False
+
+
+def test_valid_tags_returns_false_for_wrong_order() -> None:
+    assert valid_tags("([)]") is False
 
 
 # -----------------------------------------------------------------------------
