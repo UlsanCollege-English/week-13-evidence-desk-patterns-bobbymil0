@@ -86,6 +86,13 @@ def test_first_repeated_id_repeat_can_be_first_item() -> None:
         "[]{}()",
         "case-{A17}[photo](verified)",
     ],
+    ids=[
+        "empty",
+        "nested-brackets",
+        "nested-parens",
+        "all-pairs",
+        "case-with-text",
+    ],
 )
 def test_valid_tags_returns_true_for_balanced_tags(tags: str) -> None:
     assert valid_tags(tags) is True
@@ -99,6 +106,13 @@ def test_valid_tags_returns_true_for_balanced_tags(tags: str) -> None:
         ")(",
         "case-{A17[photo]",
         "([)]",
+    ],
+    ids=[
+        "crossed",
+        "unfinished-open",
+        "closing-first",
+        "missing-bracket",
+        "wrong-order",
     ],
 )
 def test_valid_tags_returns_false_for_unbalanced_tags(tags: str) -> None:
