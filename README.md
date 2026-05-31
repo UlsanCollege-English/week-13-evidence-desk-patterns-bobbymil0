@@ -3,18 +3,11 @@
 
 ## Student Name
 
-Write your name here.
+Bobby Mil0
 
 ## Summary
 
-Write 3–6 lines describing what this homework asks you to practice.
-
-Example topics:
-
-- frequency counting with dictionaries
-- duplicate detection with sets
-- stack matching with lists
-- lookup tables with dictionaries
+This homework practices common data structure patterns with a detective case file theme. The tasks include frequency counting, duplicate detection, bracket validation with a stack, and alias lookup.
 
 ## How to Run Tests
 
@@ -56,31 +49,31 @@ Optional tests are skipped by default. To run them, remove the `@pytest.mark.ski
 
 ### Pattern
 
-Write the pattern name here.
+Frequency counting
 
 ### Data Structure
 
-Write the data structure here.
+Dictionary
 
 ### Approach
 
-- Step 1:
-- Step 2:
-- Step 3:
+- Create an empty dictionary for counts.
+- Loop through each evidence label.
+- Increment the count for each label.
 
 ### Complexity
 
-- Time: `O(?)`
-- Space: `O(?)`
+- Time: `O(n)` where `n` is the number of evidence items.
+- Space: `O(k)` where `k` is the number of unique labels.
 
-Explain briefly:
+This function scans the input once and stores the number of occurrences for each label.
 
 ### Edge Cases Checked
 
-- [ ] Empty list
-- [ ] One item
-- [ ] Repeated items
-- [ ] Different labels
+- [x] Empty list
+- [x] One item
+- [x] Repeated items
+- [x] Different labels
 
 ---
 
@@ -88,31 +81,31 @@ Explain briefly:
 
 ### Pattern
 
-Write the pattern name here.
+Seen before
 
 ### Data Structure
 
-Write the data structure here.
+Set
 
 ### Approach
 
-- Step 1:
-- Step 2:
-- Step 3:
+- Create an empty set for IDs that have already appeared.
+- Loop through each suspect ID.
+- Return the ID immediately when it appears a second time.
 
 ### Complexity
 
-- Time: `O(?)`
-- Space: `O(?)`
+- Time: `O(n)` where `n` is the number of IDs.
+- Space: `O(n)` in the worst case for the set of seen IDs.
 
-Explain briefly:
+The function stops early when a repeated ID is found, so it is efficient for long lists.
 
 ### Edge Cases Checked
 
-- [ ] Empty list
-- [ ] No repeated IDs
-- [ ] First two IDs match
-- [ ] Multiple repeated IDs
+- [x] Empty list
+- [x] No repeated IDs
+- [x] First two IDs match
+- [x] Multiple repeated IDs
 
 ---
 
@@ -120,33 +113,34 @@ Explain briefly:
 
 ### Pattern
 
-Write the pattern name here.
+Stack matching
 
 ### Data Structure
 
-Write the data structure here.
+List used as a stack
 
 ### Approach
 
-- Step 1:
-- Step 2:
-- Step 3:
+- Use a stack to track opening brackets.
+- Push opening brackets onto the stack.
+- For closing brackets, verify the stack top matches the corresponding opening bracket.
+- Return True only when the stack is empty at the end.
 
 ### Complexity
 
-- Time: `O(?)`
-- Space: `O(?)`
+- Time: `O(n)` where `n` is the number of characters in the string.
+- Space: `O(n)` in the worst case for nested opening brackets.
 
-Explain briefly:
+This validates balanced bracket sequences while ignoring any non-bracket characters.
 
 ### Edge Cases Checked
 
-- [ ] Empty string
-- [ ] Correctly nested tags
-- [ ] Mismatched tags
-- [ ] Closing tag before opening tag
-- [ ] Unclosed opening tag
-- [ ] Non-bracket characters
+- [x] Empty string
+- [x] Correctly nested tags
+- [x] Mismatched tags
+- [x] Closing tag before opening tag
+- [x] Unclosed opening tag
+- [x] Non-bracket characters
 
 ---
 
@@ -154,29 +148,29 @@ Explain briefly:
 
 ### Pattern
 
-Write the pattern name here.
+Lookup table
 
 ### Data Structure
 
-Write the data structure here.
+Dictionary
 
 ### Approach
 
-- Step 1:
-- Step 2:
+- Use the alias dictionary to retrieve the real name.
+- Return `None` if the alias is not present.
 
 ### Complexity
 
-- Time: `O(?)`
-- Space: `O(?)`
+- Time: `O(1)` average lookup.
+- Space: `O(1)` additional memory.
 
-Explain briefly:
+This function uses dictionary lookup for fast alias resolution.
 
 ### Edge Cases Checked
 
-- [ ] Known alias
-- [ ] Unknown alias
-- [ ] Empty dictionary
+- [x] Known alias
+- [x] Unknown alias
+- [x] Empty dictionary
 
 ---
 
@@ -184,17 +178,14 @@ Explain briefly:
 
 ## AI Used?
 
-- [ ] Yes
+- [x] Yes
 - [ ] No
 
 ## If yes, what did AI help with?
 
-Write 1–3 bullets.
-
--
--
--
+- Implementing the required functions.
+- Updating test coverage and README details.
 
 ## Other Sources
 
-List any non-course sources you used. If none, write `None`.
+None.

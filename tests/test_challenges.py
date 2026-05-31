@@ -125,6 +125,12 @@ def test_lookup_alias_returns_none_for_unknown_alias() -> None:
     assert lookup_alias(aliases, "Unknown") is None
 
 
+def test_lookup_alias_is_case_sensitive_and_requires_exact_key() -> None:
+    aliases = {"Ghostline": "Eli Brooks"}
+
+    assert lookup_alias(aliases, "ghostline") is None
+
+
 def test_lookup_alias_handles_empty_dictionary() -> None:
     assert lookup_alias({}, "Ghostline") is None
 
